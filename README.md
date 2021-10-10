@@ -42,3 +42,21 @@ To use the Hyperledger Fabric Spring Boot Starter in your projects you can inclu
   boolen(true/false) override certificates CN Host matching.Default value is 'true'.
 + **hyperledger-fabric.gateway.discovery**
   Enable or disable service discovery for all transaction submissions for this gateway.Default value is 'true'.
+
+## Spring Boot Configuration Example
+
+```properties
+hyperledger-fabric.wallet-path=wallet
+hyperledger-fabric.network-config=classpath:cp/connection-org1.json
+hyperledger-fabric.ca-client.admin-user-id=admin
+hyperledger-fabric.ca-client.admin-password=adminpw
+hyperledger-fabric.ca-client.ca-name=ca-org1
+hyperledger-fabric.gateway.ca-user.registration-enabled=true
+hyperledger-fabric.gateway.ca-user.user-id=tom
+hyperledger-fabric.gateway.ca-user.org-msp=Org1MSP
+hyperledger-fabric.gateway.ca-user.affiliation=org1.department1
+hyperledger-fabric.gateway.channel-name=mychannel
+hyperledger-fabric.gateway.chaincode-name=basic
+hyperledger-fabric.ca-client.allow-all-host-names=true
+hyperledger-fabric.gateway.discovery=true
+```
