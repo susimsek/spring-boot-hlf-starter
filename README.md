@@ -4,7 +4,7 @@ Spring Boot Starter Hyperledger Fabric provides an easy way to get your Spring b
 
 <img src="https://github.com/susimsek/spring-boot-hlf-starter/blob/main/images/spring-boot-hlf-starter.png" alt="Spring Boot Hlf Starter" width="100%" height="100%"/>
 
-To use the Hyperledger Fabric Spring Boot Starter in your projects you can include the maven dependency in your project pom file:
+To use the Spring Boot Hyperledger Fabric Starter in your projects you can include the maven dependency in your project pom file:
 
 ```xml
 <dependency>
