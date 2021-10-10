@@ -1,4 +1,4 @@
-package io.susimsek.hlf.autoconfigure;
+package io.github.susimsek.hlf.autoconfigure;
 
 import org.hyperledger.fabric.sdk.NetworkConfig;
 import org.hyperledger.fabric.sdk.NetworkConfig.CAInfo;

@@ -1,7 +1,7 @@
-package io.susimsek.hlf.ca.user.service.impl;
+package io.github.susimsek.hlf.ca.user.service.impl;
 
-import io.susimsek.hlf.ca.user.FabricCAUser;
-import io.susimsek.hlf.ca.user.service.FabricCAUserService;
+import io.github.susimsek.hlf.ca.user.FabricCAUser;
+import io.github.susimsek.hlf.ca.user.service.FabricCAUserService;
 import org.hyperledger.fabric.gateway.Identities;
 import org.hyperledger.fabric.gateway.Identity;
 import org.hyperledger.fabric.gateway.Wallet;

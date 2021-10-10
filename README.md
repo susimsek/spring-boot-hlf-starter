@@ -8,7 +8,7 @@ To use the Hyperledger Fabric Spring Boot Starter in your projects you can inclu
 
 ```xml
 <dependency>
-  <groupId>io.susimsek</groupId>
+  <groupId>io.github.susimsek</groupId>
   <artifactId>spring-boot-hlf-starter</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 </dependency>

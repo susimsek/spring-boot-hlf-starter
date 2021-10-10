@@ -1,8 +1,8 @@
-package io.susimsek.hlf.autoconfigure;
+package io.github.susimsek.hlf.autoconfigure;
 
-import io.susimsek.hlf.ca.user.FabricCAUser;
-import io.susimsek.hlf.ca.user.service.FabricCAUserService;
-import io.susimsek.hlf.ca.user.service.impl.FabricCAUserServiceImpl;
+import io.github.susimsek.hlf.ca.user.service.impl.FabricCAUserServiceImpl;
+import io.github.susimsek.hlf.ca.user.FabricCAUser;
+import io.github.susimsek.hlf.ca.user.service.FabricCAUserService;
 import org.hyperledger.fabric.gateway.*;
 import org.hyperledger.fabric.sdk.NetworkConfig.CAInfo;
 import org.hyperledger.fabric.sdk.exception.CryptoException;

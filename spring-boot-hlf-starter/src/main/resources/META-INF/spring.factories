@@ -15,5 +15,5 @@
 ## limitations under the License.
 ## ---------------------------------------------------------------------------
 
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=io.susimsek.hlf.autoconfigure.HlfAutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=io.github.susimsek.hlf.autoconfigure.HlfAutoConfiguration
 provides=hyperledger-fabric,hyperledger-fabric.ca-client,hyperledger-fabric.gateway

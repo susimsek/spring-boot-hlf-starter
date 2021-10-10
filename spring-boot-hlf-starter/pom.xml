@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.susimsek</groupId>
+    <groupId>io.github.susimsek</groupId>
     <artifactId>spring-boot-hlf-starter</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
@@ -24,7 +24,7 @@
             <name>Şuayb Şimşek</name>
             <email>suaybsimsek58@gmail.com</email>
             <url>https://github.com/susimsek</url>
-            <organization>susimsek</organization>
+            <organization>io.github.susimsek</organization>
             <organizationUrl>https://github.com/susimsek</organizationUrl>
             <roles>
                 <role>developer</role>

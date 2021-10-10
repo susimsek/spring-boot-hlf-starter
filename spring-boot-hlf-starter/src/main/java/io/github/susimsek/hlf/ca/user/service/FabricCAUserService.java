@@ -1,4 +1,4 @@
-package io.susimsek.hlf.ca.user.service;
+package io.github.susimsek.hlf.ca.user.service;
 
 import org.hyperledger.fabric_ca.sdk.exception.EnrollmentException;
 import org.hyperledger.fabric_ca.sdk.exception.InvalidArgumentException;

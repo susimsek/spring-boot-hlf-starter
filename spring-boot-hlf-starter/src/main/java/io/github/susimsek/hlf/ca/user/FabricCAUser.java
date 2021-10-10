@@ -1,4 +1,4 @@
-package io.susimsek.hlf.ca.user;
+package io.github.susimsek.hlf.ca.user;
 
 
 import org.hyperledger.fabric.gateway.Identities;

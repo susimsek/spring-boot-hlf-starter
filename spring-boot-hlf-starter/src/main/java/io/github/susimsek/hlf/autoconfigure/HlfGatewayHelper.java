@@ -1,8 +1,8 @@
-package io.susimsek.hlf.autoconfigure;
+package io.github.susimsek.hlf.autoconfigure;
 
 
-import io.susimsek.hlf.ca.user.FabricCAUser;
-import io.susimsek.hlf.ca.user.service.FabricCAUserService;
+import io.github.susimsek.hlf.ca.user.FabricCAUser;
+import io.github.susimsek.hlf.ca.user.service.FabricCAUserService;
 
 final class HlfGatewayHelper {
     public static void registerFabricCAUserIfNotExists(FabricCAUserService fabricCAUserService, FabricCAUser fabricCAUser) throws Exception {
