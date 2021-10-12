@@ -10,7 +10,7 @@ To use the Spring Boot Hyperledger Fabric Starter in your projects you can inclu
 <dependency>
   <groupId>io.github.susimsek</groupId>
   <artifactId>spring-boot-hlf-starter</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 
