@@ -3,7 +3,11 @@ package io.github.susimsek.hlf.autoconfigure;
 import io.github.susimsek.hlf.ca.user.service.impl.FabricCAUserServiceImpl;
 import io.github.susimsek.hlf.ca.user.FabricCAUser;
 import io.github.susimsek.hlf.ca.user.service.FabricCAUserService;
-import org.hyperledger.fabric.gateway.*;
+import org.hyperledger.fabric.gateway.Gateway;
+import org.hyperledger.fabric.gateway.Contract;
+import org.hyperledger.fabric.gateway.Network;
+import org.hyperledger.fabric.gateway.Wallet;
+import org.hyperledger.fabric.gateway.Wallets;
 import org.hyperledger.fabric.sdk.NetworkConfig.CAInfo;
 import org.hyperledger.fabric.sdk.exception.CryptoException;
 import org.hyperledger.fabric.sdk.exception.InvalidArgumentException;
@@ -31,15 +35,22 @@ public class HlfAutoConfiguration {
 
         @Bean
         @ConditionalOnMissingBean(CryptoSuite.class)
-        public CryptoSuite CryptoSuite() throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, InstantiationException, NoSuchMethodException, InvalidArgumentException, CryptoException {
+        public CryptoSuite cryptoSuite() throws ClassNotFoundException, InvocationTargetException,
+                IllegalAccessException, InstantiationException, NoSuchMethodException,
+                InvalidArgumentException, CryptoException {
             return CryptoSuiteFactory.getDefault().getCryptoSuite();
         }
 
         @Bean
         @ConditionalOnProperty(prefix = "hyperledger-fabric", name = {"network-config", "ca-client.ca-name"})
         @ConditionalOnMissingBean(HFCAClient.class)
-        public HFCAClient hfcaClient(CryptoSuite cryptoSuite, HlfCAClientProperties hlfCAClientProperties, HlfProperties hlfProperties) throws org.hyperledger.fabric_ca.sdk.exception.InvalidArgumentException, IOException, NetworkConfigurationException {
-            CAInfo caInfo = HlfCAClientHelper.extractCAInfo(hlfCAClientProperties.getCaName(), hlfProperties.getNetworkConfig());
+        public HFCAClient hfcaClient(CryptoSuite cryptoSuite,
+                                     HlfCAClientProperties hlfCAClientProperties,
+                                     HlfProperties hlfProperties)
+                throws org.hyperledger.fabric_ca.sdk.exception.InvalidArgumentException,
+                IOException, NetworkConfigurationException {
+            CAInfo caInfo = HlfCAClientHelper.extractCAInfo(hlfCAClientProperties.getCaName(),
+                    hlfProperties.getNetworkConfig());
             Properties props = caInfo.getProperties();
             props.put("pemBytes", HlfCAClientHelper.extractPem(caInfo));
             props.put("allowAllHostNames", hlfCAClientProperties.isAllowAllHostNames());
@@ -57,8 +68,10 @@ public class HlfAutoConfiguration {
 
         @Bean
         @ConditionalOnMissingBean(FabricCAUserService.class)
-        public FabricCAUserService fabricCAUserService(HFCAClient hfcaClient, Wallet wallet, HlfCAClientProperties hlfCAClientProperties) {
-            return new FabricCAUserServiceImpl(hfcaClient, wallet, hlfCAClientProperties.getAdminUserId(), hlfCAClientProperties.getAdminPassword());
+        public FabricCAUserService fabricCAUserService(HFCAClient hfcaClient, Wallet wallet,
+                                                       HlfCAClientProperties hlfCAClientProperties) {
+            return new FabricCAUserServiceImpl(hfcaClient, wallet, hlfCAClientProperties.getAdminUserId(),
+                    hlfCAClientProperties.getAdminPassword());
         }
 
     }
@@ -70,7 +83,8 @@ public class HlfAutoConfiguration {
         @Bean
         @ConditionalOnProperty(prefix = "hyperledger-fabric", name = {"network-config", "gateway.ca-user.user-id"})
         @ConditionalOnMissingBean(Gateway.class)
-        public Gateway gateway(HlfGatewayProperties hlfGatewayProperties, HlfProperties hlfProperties, Wallet wallet, FabricCAUserService fabricCAUserService) throws Exception {
+        public Gateway gateway(HlfGatewayProperties hlfGatewayProperties, HlfProperties hlfProperties,
+                               Wallet wallet, FabricCAUserService fabricCAUserService) throws Exception {
             if (hlfGatewayProperties.getCaUser().isRegistrationEnabled()) {
                 FabricCAUser user = FabricCAUser.builder()
                         .orgMSP(hlfGatewayProperties.getCaUser().getOrgMsp())

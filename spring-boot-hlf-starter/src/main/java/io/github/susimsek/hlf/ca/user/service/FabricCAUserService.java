@@ -8,7 +8,8 @@ import java.security.cert.CertificateException;
 
 public interface FabricCAUserService {
 
-    void enrollAdmin(String orgMspId) throws IOException, InvalidArgumentException, EnrollmentException, CertificateException;
+    void enrollAdmin(String orgMspId) throws IOException, InvalidArgumentException,
+            EnrollmentException, CertificateException;
 
     void registerAndEnrollUser(String orgMspId, String userId, String affiliation) throws Exception;
 

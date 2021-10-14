@@ -15,7 +15,8 @@ import java.util.Properties;
 
 final class HlfCAClientHelper {
 
-    public static CAInfo extractCAInfo(String caName, Resource networkConfig) throws InvalidArgumentException, IOException, NetworkConfigurationException {
+    public static CAInfo extractCAInfo(String caName, Resource networkConfig)
+            throws InvalidArgumentException, IOException, NetworkConfigurationException {
         NetworkConfig ccp = getNetworkConfig(networkConfig.getFilename(), networkConfig.getInputStream());
         return getCAInfo(ccp.getClientOrganization().getCertificateAuthorities(), caName);
     }
@@ -26,8 +27,10 @@ final class HlfCAClientHelper {
         return optionalPemBytes.orElseThrow(() -> new InvalidArgumentException("pem in tlsCACerts is not defined."));
     }
 
-    private static NetworkConfig getNetworkConfig(String filename, InputStream is) throws InvalidArgumentException, NetworkConfigurationException {
-        String extension = getExtension(filename).orElseThrow(() -> new InvalidArgumentException(String.format("%s file is not json or yaml file", filename)));
+    private static NetworkConfig getNetworkConfig(String filename, InputStream is)
+            throws InvalidArgumentException, NetworkConfigurationException {
+        String extension = getExtension(filename).orElseThrow(() ->
+                new InvalidArgumentException(String.format("%s file is not json or yaml file", filename)));
         NetworkConfig ccp;
         switch (extension) {
             case "json":
@@ -51,10 +54,12 @@ final class HlfCAClientHelper {
     }
 
     private static CAInfo getCAInfo(List<CAInfo> caInfos, String caName) throws InvalidArgumentException {
-        return findCAInfoByCAName(caInfos, caName).orElseThrow(() -> new InvalidArgumentException(String.format("%s in certificateAuthorities is not defined.", caName)));
+        return findCAInfoByCAName(caInfos, caName).orElseThrow(() ->
+                new InvalidArgumentException(String.format("%s in certificateAuthorities is not defined.", caName)));
     }
 
-    private static Optional<CAInfo> findCAInfoByCAName(List<CAInfo> caInfos, String caName) throws InvalidArgumentException {
+    private static Optional<CAInfo> findCAInfoByCAName(List<CAInfo> caInfos, String caName)
+            throws InvalidArgumentException {
         if (caInfos == null) {
             throw new InvalidArgumentException("CertificateAuthorities is not defined.");
         }

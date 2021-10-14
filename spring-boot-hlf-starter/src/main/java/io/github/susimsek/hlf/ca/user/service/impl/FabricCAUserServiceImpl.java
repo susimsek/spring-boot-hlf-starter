@@ -20,7 +20,7 @@ import java.security.cert.CertificateException;
 
 public class FabricCAUserServiceImpl implements FabricCAUserService {
 
-    Logger log = LoggerFactory.getLogger(FabricCAUserService.class);
+    private static final Logger log = LoggerFactory.getLogger(FabricCAUserService.class);
 
     private final HFCAClient hfcaClient;
     private final Wallet wallet;
@@ -35,7 +35,8 @@ public class FabricCAUserServiceImpl implements FabricCAUserService {
     }
 
     @Override
-    public void enrollAdmin(String orgMspId) throws IOException, InvalidArgumentException, EnrollmentException, CertificateException {
+    public void enrollAdmin(String orgMspId) throws IOException, InvalidArgumentException,
+            EnrollmentException, CertificateException {
         if (wallet.get(adminUserId) != null) {
             log.warn(String.format("An identity for the admin user \"%s\" already exists in the wallet", adminUserId));
             return;

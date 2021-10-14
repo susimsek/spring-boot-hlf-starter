@@ -11,9 +11,9 @@ import java.util.Set;
 
 public class FabricCAUser implements User {
 
-    private String userId;
-    private String orgMSP;
-    private String affiliation;
+    private final String userId;
+    private final String orgMSP;
+    private final String affiliation;
     private X509Identity identity;
     private Set<String> roles;
     private String account;
@@ -24,7 +24,8 @@ public class FabricCAUser implements User {
         this.affiliation = affiliation;
     }
 
-    public FabricCAUser(String userId, String orgMSP, String affiliation, X509Identity identity, Set<String> roles, String account) {
+    public FabricCAUser(String userId, String orgMSP, String affiliation,
+                        X509Identity identity, Set<String> roles, String account) {
         this.userId = userId;
         this.orgMSP = orgMSP;
         this.affiliation = affiliation;
@@ -125,7 +126,9 @@ public class FabricCAUser implements User {
         }
 
         public String toString() {
-            return "CAUser.CAUserBuilder(userId=" + this.userId + ", orgMSP=" + this.orgMSP + ", affiliation=" + this.affiliation + ", identity=" + this.identity + ", roles=" + this.roles + ", account=" + this.account + ")";
+            return "CAUser.CAUserBuilder(userId=" + this.userId + ", orgMSP=" + this.orgMSP
+                    + ", affiliation=" + this.affiliation + ", identity=" + this.identity
+                    + ", roles=" + this.roles + ", account=" + this.account + ")";
         }
     }
 }
