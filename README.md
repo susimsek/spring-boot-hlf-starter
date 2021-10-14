@@ -1,5 +1,7 @@
 # Spring Boot Hyperledger Fabric Starter
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.susimsek/spring-boot-hlf-starter/badge.svg?style=flat-square)](https://maven-badges.herokuapp.com/maven-central/io.github.susimsek/spring-boot-hlf-starter)
+
 Spring Boot Starter Hyperledger Fabric provides an easy way to get your Spring boot application using Hyperledger Fabric Gateway SDK v2.2 up and running quickly.
 
 <img src="https://github.com/susimsek/spring-boot-hlf-starter/blob/main/images/spring-boot-hlf-starter.png" alt="Spring Boot Hlf Starter" width="100%" height="100%"/>
