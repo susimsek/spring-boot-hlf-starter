@@ -25,15 +25,16 @@ Various properties can be specified inside your application.properties file, ins
 | Name | Description | Default Value |
 | --- | --- | --- |
 | hyperledger-fabric.wallet-path | The path to wallet | wallet |
-| hyperledger-fabric.network-config | The path to the common connection profile ||
-| hyperledger-fabric.ca-client.admin-user-id | The Certificate Authority admin user id ||
-| hyperledger-fabric.ca-client.admin-password | The Certificate Authority admin user password ||
+| hyperledger-fabric.network-config | The path to the common connection profile |
+| hyperledger-fabric.ca-client.admin-user-id | The Certificate Authority admin user id |
+| hyperledger-fabric.ca-client.admin-password | The Certificate Authority admin user password |
+| hyperledger-fabric.ca-client.ca-name | The Certificate Authority name |
 | hyperledger-fabric.gateway.ca-user.registration-enabled | Enable or disable The Certificate Authority registration | false |
-| hyperledger-fabric.gateway.ca-user.user-id | The Certificate Authority user id ||
-| hyperledger-fabric.gateway.ca-user.org-msp | The Certificate Authority user Membership Service Providers (MSP) id ||
-| hyperledger-fabric.gateway.ca-user.affiliation | The Certificate Authority user affiliation ||
-| hyperledger-fabric.gateway.channel-name | The channel name ||
-| hyperledger-fabric.gateway.chaincode-name | The chaincode name ||
+| hyperledger-fabric.gateway.ca-user.user-id | The Certificate Authority user id |
+| hyperledger-fabric.gateway.ca-user.org-msp | The Certificate Authority user Membership Service Providers (MSP) id |
+| hyperledger-fabric.gateway.ca-user.affiliation | The Certificate Authority user affiliation |
+| hyperledger-fabric.gateway.channel-name | The channel name |
+| hyperledger-fabric.gateway.chaincode-name | The chaincode name |
 | hyperledger-fabric.ca-client.allow-all-host-names | boolen(true/false) override certificates CN Host matching | true |
 | hyperledger-fabric.gateway.discovery | Enable or disable service discovery for all transaction submissions for this gateway | true |
 
