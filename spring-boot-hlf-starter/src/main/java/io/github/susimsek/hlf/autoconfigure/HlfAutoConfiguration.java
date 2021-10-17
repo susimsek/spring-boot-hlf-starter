@@ -24,6 +24,7 @@ import org.springframework.context.annotation.Configuration;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Paths;
+import java.util.Optional;
 import java.util.Properties;
 
 @Configuration(proxyBeanMethods = false)
@@ -52,7 +53,13 @@ public class HlfAutoConfiguration {
             CAInfo caInfo = HlfCAClientHelper.extractCAInfo(hlfCAClientProperties.getCaName(),
                     hlfProperties.getNetworkConfig());
             Properties props = caInfo.getProperties();
-            props.put("pemBytes", HlfCAClientHelper.extractPem(caInfo));
+            Optional<byte[]> optionalPemBytes = HlfCAClientHelper.extractPemFromBytes(caInfo);
+            if (optionalPemBytes.isEmpty()) {
+                String pemPath = HlfCAClientHelper.extractPemFromPath(caInfo);
+                props.put("pemFile", pemPath);
+            } else {
+                props.put("pemBytes", optionalPemBytes.get());
+            }
             props.put("allowAllHostNames", hlfCAClientProperties.isAllowAllHostNames());
             HFCAClient caClient = HFCAClient.createNewInstance(caInfo.getCAName(), caInfo.getUrl(), props);
             caClient.setCryptoSuite(cryptoSuite);

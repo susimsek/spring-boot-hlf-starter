@@ -6,11 +6,14 @@ import org.hyperledger.fabric.sdk.exception.NetworkConfigurationException;
 import org.hyperledger.fabric_ca.sdk.exception.InvalidArgumentException;
 import org.springframework.core.io.Resource;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
+import java.util.stream.Stream;
 
 
 final class HlfCAClientHelper {
@@ -21,10 +24,15 @@ final class HlfCAClientHelper {
         return getCAInfo(ccp.getClientOrganization().getCertificateAuthorities(), caName);
     }
 
-    public static byte[] extractPem(CAInfo caInfo) throws InvalidArgumentException {
+    public static Optional<byte[]> extractPemFromBytes(CAInfo caInfo) {
         Properties properties = caInfo.getProperties();
-        Optional<byte[]> optionalPemBytes = Optional.ofNullable((byte[]) properties.get("pemBytes"));
-        return optionalPemBytes.orElseThrow(() -> new InvalidArgumentException("pem in tlsCACerts is not defined."));
+        return Optional.ofNullable((byte[]) properties.get("pemBytes"));
+    }
+
+    public static String extractPemFromPath(CAInfo caInfo) throws InvalidArgumentException {
+        Properties properties = caInfo.getProperties();
+        Optional<String> optionalPemPath = Optional.ofNullable(properties.getProperty("path"));
+        return optionalPemPath.orElseThrow(() -> new InvalidArgumentException("pem in tlsCACerts is not defined."));
     }
 
     private static NetworkConfig getNetworkConfig(String filename, InputStream is)
